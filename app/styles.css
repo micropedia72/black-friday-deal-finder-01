@@ -1,0 +1,276 @@
+/* DealSieve — Black Friday 2026 deal finder. Original design, system fonts only. */
+:root {
+  --ink: #171b22;
+  --ink-soft: #4a5261;
+  --ink-faint: #8a93a3;
+  --paper: #f6f4ef;
+  --card: #ffffff;
+  --line: #e4e0d6;
+  --accent: #c2410c;
+  --accent-soft: #fff1e6;
+  --green: #166534;
+  --green-soft: #dcfce7;
+  --amber: #92400e;
+  --amber-soft: #fef3c7;
+  --slate-soft: #eef2f7;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+a { color: var(--accent); }
+
+/* ---------- header ---------- */
+.hero {
+  background: #171b22;
+  color: #f8fafc;
+  padding: 34px 20px 26px;
+}
+.hero-inner { max-width: 1080px; margin: 0 auto; }
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.brand h1 {
+  margin: 0;
+  font-size: 34px;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+.brand h1 span { color: #fbbf24; }
+.badge-live {
+  background: #fbbf24;
+  color: #171b22;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.hero p {
+  margin: 10px 0 0;
+  color: #cbd5e1;
+  max-width: 640px;
+  font-size: 15px;
+}
+.hero .checked-line {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #94a3b8;
+}
+.hero .checked-line strong { color: #e2e8f0; }
+
+/* ---------- stats ---------- */
+.stats {
+  max-width: 1080px;
+  margin: -14px auto 0;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.stat {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  box-shadow: 0 1px 2px rgba(23, 27, 34, 0.06);
+}
+.stat .num { font-size: 26px; font-weight: 800; letter-spacing: -0.5px; }
+.stat .lbl { font-size: 12px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* ---------- toolbar ---------- */
+.toolbar {
+  max-width: 1080px;
+  margin: 18px auto 0;
+  padding: 0 20px;
+}
+.search-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.search-row input[type="search"],
+.search-row select {
+  font: inherit;
+  padding: 11px 14px;
+  border: 1px solid #cfc9bb;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+}
+.search-row input[type="search"] { flex: 1 1 260px; min-width: 200px; }
+.search-row select { flex: 0 1 auto; }
+.pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.pill {
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 13px;
+  border-radius: 999px;
+  border: 1px solid #cfc9bb;
+  background: #fff;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.pill:hover { border-color: var(--accent); color: var(--accent); }
+.pill.active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+.result-line {
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.result-line strong { color: var(--ink); }
+
+/* ---------- grid ---------- */
+.grid {
+  max-width: 1080px;
+  margin: 14px auto 0;
+  padding: 0 20px 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 2px rgba(23, 27, 34, 0.05);
+}
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+.cat {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.store {
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--slate-soft);
+  color: #334155;
+  padding: 3px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.card h2 {
+  margin: 8px 0 0;
+  font-size: 17px;
+  line-height: 1.35;
+  letter-spacing: -0.2px;
+}
+.verdict {
+  margin-top: 10px;
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.verdict.new-low { background: var(--green-soft); color: var(--green); }
+.verdict.strong { background: var(--amber-soft); color: var(--amber); }
+.verdict.routine { background: var(--slate-soft); color: #475569; }
+.price-row {
+  margin-top: 12px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.sale { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; }
+.usual { font-size: 15px; color: var(--ink-faint); text-decoration: line-through; }
+.off {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+.save-line { margin-top: 2px; font-size: 13px; color: var(--ink-soft); }
+.evidence {
+  margin: 10px 0 0;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  border-left: 3px solid #e7e2d5;
+  padding-left: 10px;
+}
+.checked {
+  margin: 12px 0 0;
+  font-size: 12px;
+  color: var(--ink-faint);
+}
+.card .spacer { flex: 1; }
+.buy {
+  margin-top: 14px;
+  display: block;
+  text-align: center;
+  background: var(--ink);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+.buy:hover { background: var(--accent); }
+.empty {
+  max-width: 1080px;
+  margin: 30px auto;
+  padding: 0 20px;
+  text-align: center;
+  color: var(--ink-soft);
+}
+.empty h2 { color: var(--ink); }
+
+/* ---------- footer ---------- */
+footer {
+  max-width: 1080px;
+  margin: 26px auto 0;
+  padding: 0 20px 40px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+footer h3 { color: var(--ink); font-size: 15px; margin: 0 0 6px; }
+footer .legend { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0 14px; }
+footer p { margin: 6px 0; max-width: 760px; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .grid { grid-template-columns: 1fr; }
+  .brand h1 { font-size: 28px; }
+  .sale { font-size: 25px; }
+}
