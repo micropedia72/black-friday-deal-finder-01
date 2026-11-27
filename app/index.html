@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DealSieve — Black Friday 2026 Deal Finder</title>
+<meta name="description" content="48 real Black Friday and Cyber Monday 2026 deals, each checked by hand on Nov 27, 2026, with an honest verdict on whether the deal is real.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="brand">
+      <h1>Deal<span>Sieve</span></h1>
+      <span class="badge-live">Black Friday 2026</span>
+    </div>
+    <p>Real Black Friday and Cyber Monday deals, checked by hand — not scraped, not inflated. Every deal shows its sale price, its usual price, when it was checked, and an honest verdict on whether it is really a deal.</p>
+    <p class="checked-line">Prices checked <strong>Nov 27, 2026, 6:49 PM WIB</strong> · Sale runs through Cyber Monday, Nov 30 · Prices change fast — verify at checkout.</p>
+  </div>
+</header>
+
+<section class="stats" id="stats" aria-label="Deal statistics"></section>
+
+<main>
+  <div class="toolbar">
+    <div class="search-row">
+      <input type="search" id="search" placeholder="Search deals — try “OLED”, “AirPods”, “vacuum”… " aria-label="Search deals">
+      <select id="store" aria-label="Filter by store">
+        <option value="">All stores</option>
+      </select>
+      <select id="discount" aria-label="Filter by discount">
+        <option value="0">Any discount</option>
+        <option value="20">20% off or more</option>
+        <option value="30">30% off or more</option>
+        <option value="40">40% off or more</option>
+        <option value="50">50% off or more</option>
+      </select>
+      <select id="sort" aria-label="Sort deals">
+        <option value="discount-desc">Biggest discount first</option>
+        <option value="savings-desc">Biggest saving ($) first</option>
+        <option value="price-asc">Lowest price first</option>
+        <option value="price-desc">Highest price first</option>
+      </select>
+    </div>
+    <div class="pills" id="pills" role="group" aria-label="Filter by category"></div>
+    <p class="result-line" id="result-line"></p>
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" hidden>
+    <h2>No deals match that search</h2>
+    <p>Try a different word, a lower discount, or another category.</p>
+  </div>
+</main>
+
+<footer>
+  <h3>How to read a verdict</h3>
+  <div class="legend">
+    <span class="verdict new-low">New low</span>
+    <span class="verdict strong">Strong deal</span>
+    <span class="verdict routine">Routine</span>
+  </div>
+  <p><strong>New low</strong> — a source calls it an all-time or record low price. <strong>Strong deal</strong> — a real cut of 20% or more off the usual price. <strong>Routine</strong> — a small cut, or the “was” price looks inflated, so the real saving is smaller than the sticker says. The evidence line on each card says why.</p>
+  <p>How the prices were checked: each deal was read from the retailer listing or a deals roundup that names the store, on Nov 27, 2026. The source is named on every card. Prices and stock change by the hour during Black Friday week — always confirm the price in your cart before you pay.</p>
+  <p>DealSieve is an independent deal finder built for make.fun’s “Build the best real Black Friday deal finder” bounty. It is not affiliated with Amazon, Best Buy, Walmart, Target, Google, or any brand named here. Store names and product names belong to their owners; links go to the store so you can check the deal yourself.</p>
+</footer>
+
+<script src="deals.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
